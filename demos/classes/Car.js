@@ -1,14 +1,19 @@
 import { Vehicle } from './Vehicle.js';
 
-export class Car extends Vehicle {
-  numberOfDoors = 4;
+const defaultConfig = {
+  make: 'unspecified make',
+  model: 'unspecified model',
+  year: 2021,
+  color: 'black',
+};
 
-  constructor(config = {}) {
-    super(config);
-    this.numberOfDoors = config.numberOfDoors || this.numberOfDoors;
+export class Car extends Vehicle {
+  constructor( config = {} ) {
+    super( config );
+    Object.assign( this, defaultConfig, config );
   }
 
   toString() {
-    return super.toString() + ` with ${this.numberOfDoors} doors.`;
+    return `${this.color} ${this.year} ${super.toString()}`;
   }
 }

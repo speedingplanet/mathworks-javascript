@@ -1,29 +1,36 @@
-/* eslint-disable */
+const defaultConfig = {
+  make: 'unspecified make',
+  model: 'unspecified model',
+};
+
 export class Vehicle {
   static vin = 0;
 
-  constructor(make = 'Default make', model = 'Default model') {
+  /*
+  // Per argument style
+  constructor( make = 'Default make', model = 'Default model' ) {
     this.make = make;
     this.model = model;
-    this.color = 'red';
-    this.speed = 0;
-  }
 
-  /*
-  constructor(config = {}) {
-    this.make = config.make || this.make;
-    this.model = config.model || this.model;
-    this.color = config.color || this.color;
-    this.speed = 0;
+    this._vin = ++Vehicle.vin;
+
+    // Intended private, the underscore _ is a convention, it does not
+    // actually make the properties private
+    this._odometer = 0;
+  }
+  */
+
+  // Config style
+  constructor( config = {} ) {
+    Object.assign( this, defaultConfig, config );
 
     Vehicle.vin = Vehicle.vin + 1;
     this._vin = Vehicle.vin;
 
-    // Intended private
-    this.odometer = 0;
-    this.mileage = 0;
+    // Intended private, the underscore _ is a convention, it does not
+    // actually make the properties private
+    this._odometer = 0;
   }
-  */
 
   getMake() {
     return this.make;
@@ -37,11 +44,11 @@ export class Vehicle {
     return this._vin;
   }
 
-  set mileage(miles) {
-    this.odometer += miles;
+  set mileage( miles ) {
+    this._odometer += miles;
   }
 
   get mileage() {
-    return this.odometer;
+    return this._odometer;
   }
 }
