@@ -31,7 +31,7 @@
 
 // promise.finally(() => {})
 
-const baseUrl = 'http://localhost:8001/api/zippay/v1/users/';
+const baseUrl = 'http://localhost:8000/api/zippay/v1/users/';
 
 const responsePromise = fetch( baseUrl );
 
@@ -52,8 +52,11 @@ responsePromise
       // throw new Error(responseError);
     },
   )
-  .catch( function( err ) {
+  .catch( ( err ) => {
     // Can see errors from fetch or responsePromise.then()
+
+    // Pass it along, or don't
+    return Promise.reject( err );
   } )
   .then( function( results ) {
     console.log( 'Results: ', results );
