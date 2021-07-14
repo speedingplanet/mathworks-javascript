@@ -27,6 +27,9 @@ function loopedEvents() {
       console.log( `You clicked on looped/${index + 1}` ),
     ),
   );
+
+  // If we needed listItems to have Array functionality
+  // const listItemsArray = Array.from( listItems );
 }
 
 // Delegated event handler

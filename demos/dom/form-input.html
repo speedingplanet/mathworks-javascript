@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <main class="container">
+  <main class="container">  
     <header>
       <h1>Form input</h1>
     </header>
@@ -49,7 +49,7 @@
     let textButton = document.getElementById('text-button');
 
     textButton.addEventListener('click', () => logMessage(textField.value, 'button-log'));
-    textField.addEventListener('keydown', (e) => logMessage(`${e.key} / ${e.keyCode}`, 'keydown-log'));
+    textField.addEventListener('keydown', (e) => logMessage(`${e.key} / ${e.keyCode} / ${textField.value}`, 'keydown-log'));
     textField.addEventListener('input', (e) => logMessage(`${e.data} / ${textField.value}`, 'input-log'));
     textField.addEventListener('change', () => logMessage(textField.value, 'change-log'));
 

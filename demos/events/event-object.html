@@ -36,14 +36,34 @@
     </div>
   </div>
 
-  <script>
-    let box = document.getElementById('box');
-    box.addEventListener('click', clickHandler);
+  <div>
+    <p>This is some text. This class is for <a id="target-link" href="http://mathworks.com">MathWorks</a>.</p>
+  </div>
 
+  <script>
+    // let box = document.getElementById('box');
+    let box = document.querySelector('#box');
+    box.addEventListener('click', clickHandler);
+    /*
+    box.addEventListener('click', (event) => {
+      clickHandler(event, other, arguments, as, needed);
+    });
+    */
+
+    // This is hoisted
     function clickHandler(event) {
       console.log('You clicked on the box.');
-      console.log('Here\'s the even object: ', event);
+      console.log('Here\'s the event object: ', event);
+
+      // Check out event.target.
     }
+
+    let link = document.querySelector('#target-link');
+    link.addEventListener('click', (event) => {
+      console.log('You clicked on the link!');
+      event.preventDefault();
+    });
+
   </script>
 </body>
 </html>
