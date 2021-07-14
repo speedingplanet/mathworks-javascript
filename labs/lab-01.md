@@ -5,9 +5,10 @@ A series of labs covering data and the Document Object Model.
 ## Lab 01-1
 
 Uncomment the import statement which defines users  
-Using `users`, create an array `names` which contains the full name of each user as a string.   
+Using `users`, create an array `names` which contains the full name (the display name?) of each user as a string.   
 For example: `['John Paxton', 'Dann Russo']`.  
 Print the `names` array to the console.
+Filter out the users who are corporations.
 
 ## Lab 01-2
 
