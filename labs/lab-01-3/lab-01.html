@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/bootstrap.css">
+  <title>Lab 01</title>
+</head>
+
+<body>
+  <main class="container">
+    <header>
+      <h1>Lab 01</h1>
+    </header>
+    <!-- .row>.col>ul#names-list -->
+    <!-- .row>.col>.form-group>label+input:text.form-control+button.btn.btn-primary[type=button] -->
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="add-name">Add a name:</label>
+          <input type="text" id="add-name" class="form-control">
+          <div class="mt-2"><button class="btn btn-primary" type="button">Add name</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col" id="names-div">
+      </div>
+    </div>
+  </main>
+
+  <!-- Add a script tag that loads lab-01.js. Don't forget that it's
+  an ECMAScript module! -->
+  <script src="lab-01.js" type="module"></script>
+</body>
+
+</html>
