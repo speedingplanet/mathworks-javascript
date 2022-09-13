@@ -22,6 +22,8 @@
           </li>
           <li>
             <code>document.querySelector(selector)</code>
+            <br />
+            <code>element.querySelector(selector)</code>
             <p>
               Finds the first match for
               <code>selector</code>
@@ -32,6 +34,8 @@
           </li>
           <li>
             <code>document.querySelectorAll(selector)</code>
+            <br />
+            <code>element.querySelectorAll(selector)</code>
             <p>
               Finds all matches for
               <code>selector</code>
@@ -41,11 +45,23 @@
             </p>
           </li>
           <li>
-            <code>document.getElementsByClassName(class)</code>
+            <code style="text-decoration: line-through">
+              document.getElementsByClassName(class)
+            </code>
+            <p>
+              Use
+              <code>document.querySelector('.class')</code>
+              , it's easier
+            </p>
             <p>Not frequently used: Get all elements in the page by their CSS class.</p>
           </li>
           <li>
-            <code>document.getElementsByTagName(tag)</code>
+            <code style="text-decoration: line-through">document.getElementsByTagName(tag)</code>
+            <p>
+              Use
+              <code>document.querySelector('tag')</code>
+              , it's easier
+            </p>
             <p>
               Not frequently used: Get all elements in the page by their
               <code>tag</code>

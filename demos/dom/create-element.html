@@ -4,24 +4,49 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <style>
+      #parent {
+        border: 2px #008000 dotted;
+        height: 25vh;
+      }
+
+      #target {
+        border: 2px black double;
+        height: 25vh;
+      }
+    </style>
     <title>Creating elements</title>
   </head>
   <body>
-    <main>
-      <p>Let's build a paragraph</p>
-      <div id="target"></div>
-
-      <!-- For insertAdjacentHTML and insertAdjacentElement -->
-      <!-- beforebegin / before() -->
-      <div id="parent">
-        <!-- afterbegin / prepend() -->
-        <p></p>
-        <!-- beforeend / append() -->
+    <main class="container">
+      <div class="row">
+        <header class="col">
+          <h1>Creating elements</h1>
+          <hr />
+        </header>
       </div>
-      <!-- afterend / after() -->
+      <div class="row">
+        <div class="col">
+          <!-- For insertAdjacentHTML and insertAdjacentElement -->
+          <!-- beforebegin / before() -->
+          <div id="parent">
+            <!-- afterbegin / prepend() -->
+            <p id="existing-para">Existing para</p>
+            <!-- beforeend / append() -->
+          </div>
+          <!-- afterend / after() -->
+        </div>
+        <div class="col">
+          <div id="target">
+            <p>Target element</p>
+          </div>
+        </div>
+      </div>
     </main>
 
     <script>
+      /*
       // Create the element
       let p = document.createElement('p');
 
@@ -42,6 +67,7 @@
 
       // All-in-one with insertAdjacentHTML
       target.insertAdjacentHTML('beforeend', '<p>Added by <code>insertAdjacentHTML</code></p>');
+      */
     </script>
   </body>
 </html>
