@@ -45,6 +45,7 @@
       let getAllButton = document.getElementById('get-all-button');
       let textField = document.getElementById('text-field');
       let form = document.getElementById('demo-form');
+      let inputFormData = {};
 
       function log(message, add = false) {
         let logger = document.getElementById('log-message');
@@ -88,6 +89,13 @@
 
         entries.forEach(([key, value]) => {
           log(`The ${key} field has the value ${value}.`, true);
+        });
+
+        form.addEventListener('input', (event) => {
+          let field = event.target.name;
+          let value = event.target.value;
+          inputFormData[field] = value;
+          console.log('Form data value:', inputFormData);
         });
       });
     </script>
