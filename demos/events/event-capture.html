@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Capture</title>
+    <style>
+      main * {
+        padding: 15px;
+      }
+      section {
+        border: 2px black solid;
+      }
+      div {
+        border: 2px green dashed;
+      }
+      ul {
+        border: 2px orange double;
+      }
+      li {
+        border: 2px red dotted;
+      }
+
+      li > p {
+        background-color: blue;
+        color: white;
+      }
+
+      li > p > span {
+        background-color: gray;
+        color: white;
+      }
+      a {
+        background-color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>Event Capture</h1>
+    </header>
+    <main>
+      <p>Looking at how events are captured in JavaScript in a browser</p>
+      <section>
+        <div>
+          <p>Non list content</p>
+          <ul>
+            <li>Other list item</li>
+            <li>
+              <p>
+                Before the span...
+                <span
+                  >Text in the span: <a href="http://tjx.com/">Link text</a>, in the span, after the
+                  link</span
+                >
+                ...after the span
+              </p>
+            </li>
+            <li>Other list item</li>
+          </ul>
+          <p>Non list content</p>
+        </div>
+      </section>
+    </main>
+    <script src="event-capture.js"></script>
+  </body>
+</html>

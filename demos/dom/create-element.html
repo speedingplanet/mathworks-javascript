@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creating elements</title>
+  </head>
+  <body>
+    <main>
+      <p>Let's build a paragraph</p>
+      <div id="target"></div>
+
+      <!-- For insertAdjacentHTML and insertAdjacentElement -->
+      <!-- beforebegin / before() -->
+      <div id="parent">
+        <!-- afterbegin / prepend() -->
+        <p></p>
+        <!-- beforeend / append() -->
+      </div>
+      <!-- afterend / after() -->
+    </main>
+
+    <script>
+      // Create the element
+      let p = document.createElement('p');
+
+      // Create a text node
+      let textNode = document.createTextNode('Test content');
+
+      // Set the text of the textNode
+      textNode.textContent = 'Test content (additional)';
+
+      // Append the textNode to the element
+      p.appendChild(textNode);
+
+      // Get a reference to the parent element for your new element
+      let target = document.getElementById('target');
+
+      // Append the element to the parent
+      target.appendChild(p);
+
+      // All-in-one with insertAdjacentHTML
+      target.insertAdjacentHTML('beforeend', '<p>Added by <code>insertAdjacentHTML</code></p>');
+    </script>
+  </body>
+</html>

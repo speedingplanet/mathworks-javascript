@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lists and the DOM</title>
+  </head>
+  <body>
+    <h1>Lists and the DOM</h1>
+    <!-- comments -->
+    <div>
+      <ul id="list-one">
+        <li>Boston</li>
+        <li>Natick</li>
+        <li>Worcester</li>
+        <li>Cape Cod</li>
+      </ul>
+
+      <ul id="list-two">
+        <li>Nutley</li>
+        <li>Newark</li>
+        <li>Atlantic City</li>
+        <li>Jersey City</li>
+      </ul>
+    </div>
+
+    <script>
+      let listOne = document.getElementById('list-one');
+      let listTwo = document.getElementById('list-two');
+
+      // let firstLI = document.querySelector('li');
+      // let firstLI = document.querySelector('li', listTwo);
+      let firstLI = listTwo.querySelector('li');
+      // let firstLI = listTwo.querySelectorAll('li')[0];
+      // let firstLI = listTwo.querySelector('li:first-child');
+    </script>
+  </body>
+</html>

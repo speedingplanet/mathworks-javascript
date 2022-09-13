@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Click events</title>
+    <style>
+      .no-show {
+        display: none;
+      }
+
+      .show {
+        display: inline;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Click events</h1>
+    <p>Working with click events in JavaScript</p>
+
+    <div>
+      <button id="target-button" type="button">Click here</button>
+    </div>
+
+    <div>
+      <h2>Cities</h2>
+      <ul id="cities-list" onclick="someEventHandler(event)">
+        <li>New York</li>
+        <li>Boston</li>
+        <li>Chicago</li>
+        <li>San Francisco</li>
+      </ul>
+
+      <p id="message-container" hidden>You clicked on <span>{cityname}</span></p>
+    </div>
+
+    <script>
+      // Returns an HTMLElement: https://developer.mozilla.org/en-us/docs/Web/API/HTMLElement
+      const para = document.getElementById('message-container');
+
+      function someEventHandler(event) {
+        console.log('Called via the onclick attribute: ', event);
+      }
+
+      // Event delegation
+      let listRef = document.getElementById('cities-list');
+      listRef.addEventListener('click', function (event) {
+        const listItem = event.target; // same value as returned by getElementById()
+        para.hidden = false;
+        event.stopPropagation();
+
+        const span = para.querySelector('span');
+        span.textContent = listItem.textContent;
+
+        console.log(`You clicked on ${listItem.textContent}.`);
+      });
+
+      document.body.addEventListener('click', function () {
+        para.hidden = true;
+      });
+
+      let buttonRef = document.getElementById('target-button');
+      console.log('buttonRef: ', buttonRef);
+
+      function handleClick() {
+        console.log('You clicked on the button!');
+      }
+
+      // addEventListener(name of event, what to do)
+      // buttonRef.addEventListener('click', () => console.log('You clicked on the button'));
+      buttonRef.addEventListener('click', handleClick);
+    </script>
+  </body>
+</html>

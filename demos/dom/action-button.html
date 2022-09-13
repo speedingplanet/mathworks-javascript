@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript and Buttons</title>
+  </head>
+  <body>
+    <div>
+      <label for="greet-name">Click to be greeted:</label>
+      <input type="text" id="greet-name" />
+      <button id="greet-button">Greet me</button>
+      <p id="greet-output"></p>
+    </div>
+    <hr />
+    <div>
+      <label for="instant-name">Instant greetings:</label>
+      <input type="text" id="instant-name" />
+    </div>
+    <hr />
+    <div>
+      <label for="adjacent-name">Adjacent greetings:</label>
+      <input type="text" id="adjacent-name" />
+    </div>
+    <hr />
+    <div>
+      <label>Greetings on enter:</label>
+      <input type="text" id="enter-name" />
+      <p id="enter-output"></p>
+    </div>
+
+    <script>
+      function greetHandler() {
+        const greetInput = document.getElementById('greet-name');
+        const name = greetInput.value;
+        const greetOutput = document.getElementById('greet-output');
+        greetOutput.innerText = `Hello, ${name}`;
+      }
+
+      const greetButton = document.getElementById('greet-button');
+      greetButton.addEventListener('click', greetHandler);
+      document.getElementById('greet-name').addEventListener('keyup', (event) => {
+        if (event.code !== 'Enter') {
+          return;
+        }
+        greetHandler();
+      });
+
+      /*
+      const instantInput = document.getElementById('instant-name');
+      instantInput.addEventListener('input', () => {
+        const name = instantInput.value;
+        const instantOutput = document.getElementById('instant-output');
+        instantOutput.innerText = `Instant greetings, ${name}`;
+      });
+      */
+
+      document.getElementById('instant-name').addEventListener('input', (event) => {
+        let p;
+        const parentElement = event.target.parentElement;
+        if (parentElement.lastElementChild.tagName.toUpperCase() !== 'P') {
+          p = document.createElement('p');
+          parentElement.append(p);
+        } else {
+          p = parentElement.lastElementChild;
+        }
+        p.innerText = `Instant greetings, ${event.target.value}`;
+      });
+
+      document.getElementById('adjacent-name').addEventListener('input', (event) => {
+        const textField = event.target;
+        let output = textField.nextElementSibling;
+        if (!output || output.tagName !== 'P') {
+          output = textField.insertAdjacentElement('afterend', document.createElement('p'));
+        }
+        output.innerText = textField.value;
+      });
+
+      document.getElementById('enter-name').addEventListener('keyup', (event) => {
+        if (event.code !== 'Enter') {
+          return;
+        }
+        const enterOutput = document.getElementById('enter-output');
+        if (event.target.value.length > 0) {
+          enterOutput.innerText = `Only on Enter: ${event.target.value}.`;
+        }
+      });
+    </script>
+  </body>
+</html>

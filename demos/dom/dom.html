@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript and the DOM</title>
+    <style>
+      /* tag */
+      input {
+        --placholder-variable: blue;
+      }
+
+      /* class */
+      .foo {
+        --placholder-variable: blue;
+      }
+
+      /* id */
+      #foo {
+        --placholder-variable: blue;
+      }
+
+      /* attributes */
+      [foo] {
+        --placholder-variable: blue;
+      } /* is this attribute present? */
+      [foo='bar'] {
+        --placholder-variable: blue;
+      } /* is this attribute set to this value? */
+      [foo^='bar'] {
+        --placholder-variable: blue;
+      } /* is this attribute set to a value that starts with 'bar'? */
+      [id^='name-'] {
+        --placholder-variable: blue;
+      } /* id starts with 'name-' */
+      [class^='foo'] {
+        --placholder-variable: blue;
+      } /* class starts with 'foo' */
+      /* Does not match: <div class="bar foo"></div> */
+
+      /* Matches: <div class="bar foo"></div> */
+      /* Matches: <div class="bar foobaz"></div> */
+      /* Matches: <div class="bar bazfoobaz"></div> */
+      [class*=' foo'] {
+        --placholder-variable: blue;
+      }
+
+      /* combinations */
+      input[type='text'] {
+        background-color: blue;
+      }
+
+      div.foo.bar {
+        --placholder-variable: blue;
+      }
+
+      /* multiple selectors */
+      .foo,
+      .bar {
+        --placholder-variable: blue;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        --placholder-variable: blue;
+      }
+
+      input[type='text'],
+      textarea,
+      input[type='phone'] {
+        border: 2px black solid;
+        background-color: red;
+      }
+
+      /* parent > child  */
+      div > ul > li.clicked {
+        --placholder-variable: blue;
+      }
+      /* does not match <div><form><ul>...</ul></form></div> */
+
+      /* ancestor descendant */
+      div.foo p {
+        --placholder-variable: blue;
+      }
+      div ul > li.clicked {
+        --placholder-variable: blue;
+      }
+
+      /* pseudo-classes */
+      ul > li:first-child {
+        --placholder-variable: blue;
+      }
+
+      /* Not yet supported */
+      div ul:has(li.clicked) {
+        --placholder-variable: blue;
+      }
+
+      table tr:nth-child(odd) {
+        --placholder-variable: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>JavaScript and the DOM</h1>
+  </body>
+</html>

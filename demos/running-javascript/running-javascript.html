@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Running JavaScript</title>
+  </head>
+  <body>
+    <header>
+      <h1>Running JavaScript</h1>
+    </header>
+    <main>
+      <p>Exploring different ways to run JavaScript</p>
+    </main>
+    <!-- Non-module (everything is global) -->
+    <script src="running-javascript.js"></script>
+
+    <!-- Module (everything in a context, nothing unintentionally global) -->
+    <script src="javascript-module.js" type="module"></script>
+
+    <!-- Inline, global -->
+    <script>
+      console.log('This is in-line JavaScript.');
+    </script>
+  </body>
+</html>

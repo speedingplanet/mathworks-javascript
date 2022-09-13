@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <title>Query Selector (All)</title>
+    <style>
+      /*
+    li {}
+
+    .col li {}
+
+    ul>li {}
+
+    #fruits li {}
+    */
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <header class="row">
+        <div class="col">
+          <h1>Query Selector (All)</h1>
+        </div>
+      </header>
+      <div class="row">
+        <div class="col">
+          <ul id="fruits">
+            <li>apples</li>
+            <li>peaches</li>
+            <li>bananas</li>
+            <li>oranges</li>
+            <li>lemons</li>
+            <li>limes</li>
+            <li>kiwis</li>
+            <li>pears</li>
+            <li>plantains</li>
+            <li>tangerines</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+    <script>
+      // First match only, null if not found
+      let item = document.querySelector('ul>li');
+      console.log('item: ', item);
+
+      // All matches, as a NodeList, empty NodeList if not found
+      let nodeList = document.querySelectorAll('ul>li');
+      console.log('nodeList: ', nodeList);
+
+      nodeList.forEach((li) => console.log(li.textContent));
+      let nodeArray = Array.from(nodeList);
+      let fruits = nodeArray.map((li) => li.textContent);
+      console.log('fruits: ', fruits);
+
+      let ul = document.getElementById('fruits');
+
+      let li = ul.querySelectorAll('li');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript types</title>
+  </head>
+  <body>
+    <h1>JavaScript types</h1>
+    <p>Create different JavaScript types with different variable assignments.</p>
+
+    <script>
+      'use strict';
+      // var message = 'You clicked on the button';
+
+      // badMessage = 'Boo';
+
+      // like final in (some) other languages
+      const message2 = 'Using const'; // Can't be modified
+
+      // This can be modified
+      let message3 = 'Using let';
+
+      let name = 'John';
+      let messageSingle = 'Hello ' + name;
+      let messageDouble = 'Hello ' + name;
+      let messageBacktick = `Hello, ${name}`;
+
+      let escapeQuote = "Hello Mr. O'Reilly";
+      let noEscape = `Hello, Mr. O'Reilly.`;
+
+      let multiLineString = `
+To be or not to be;
+That is the question.
+    `;
+
+      console.log(multiLineString);
+
+      let aString = 'Hello'; // single quotes, double quotes or backticks
+      let aNumber = 20;
+
+      // Valid
+      aNumber = 'Good-bye';
+
+      let aBoolean = true; // or false as a bareword
+      let anArray = [1, 2, 3, 4];
+      let anObject = {
+        firstName: 'John',
+        lastName: 'Paxton',
+      };
+
+      // Functions
+      let aFunction = function () {
+        console.log('aFunction');
+      };
+
+      function anotherFunction() {
+        console.log('anotherFunction');
+      }
+
+      // Other types
+      let today = new Date();
+    </script>
+  </body>
+</html>

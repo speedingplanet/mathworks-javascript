@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Limiting a Select List</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Limiting a Select List</h1>
+      </header>
+      <p>Limiting the number of items to be selected in a select list</p>
+      <section style="display: flex">
+        <div>
+          <select name="select-list" id="select-list" size="5" multiple>
+            <option value="item-1">Item 1</option>
+            <option value="item-2">Item 2</option>
+            <option value="item-3">Item 3</option>
+            <option value="item-4">Item 4</option>
+            <option value="item-5">Item 5</option>
+            <option value="item-6">Item 6</option>
+            <option value="item-7">Item 7</option>
+            <option value="item-8">Item 8</option>
+            <option value="item-9">Item 9</option>
+            <option value="item-10">Item 10</option>
+          </select>
+        </div>
+        <div id="messages"></div>
+      </section>
+    </main>
+    <script>
+      let selectList = document.querySelector('#select-list');
+      selectList.addEventListener('click', (event) => {
+        let selectedOptions = event.currentTarget.selectedOptions;
+        console.log(`[click] selectedOptions.length ${selectedOptions.length}`);
+        if (selectedOptions.length > 3) {
+          logMessage('[click] Cannot select more than three elements');
+          event.target.selected = false;
+        }
+      });
+
+      selectList.addEventListener('change', (event) => {
+        let selectedOptions = event.target.selectedOptions;
+        console.log(`[change] selectedOptions.length ${selectedOptions.length}`);
+        if (selectedOptions.length > 3) {
+          logMessage('[change] Cannot select more than three elements');
+          event.target.selected = false;
+        }
+      });
+
+      function logMessage(message, replace = false) {
+        let target = document.querySelector('#messages');
+        if (replace) target.replaceChildren();
+        target.insertAdjacentHTML('beforeend', `<p>${message}</p>`);
+      }
+    </script>
+  </body>
+</html>

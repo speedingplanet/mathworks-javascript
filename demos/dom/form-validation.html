@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <title>Form Validation</title>
+    <style>
+      input.touched:invalid {
+        border: 2px red dashed;
+      }
+
+      input.touched:valid {
+        box-shadow: 0 0 2px 2px lightgreen;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="container">
+      <header class="row">
+        <div class="col">
+          <h1>Form Validation</h1>
+        </div>
+      </header>
+      <div class="row">
+        <div class="col-8">
+          <form id="validation-form">
+            <div>
+              <label for="v-required" class="form-label">Required</label>
+              <input
+                type="text"
+                name="v-required"
+                id="v-required"
+                class="form-control untouched"
+                required />
+              <div>
+                Validity State:
+                <span class="validity-state"></span>
+              </div>
+            </div>
+            <div>
+              <label for="v-pattern" class="form-label">Pattern</label>
+              <input
+                type="text"
+                name="v-pattern"
+                id="v-pattern"
+                class="form-control untouched"
+                required
+                pattern="[A-Z]\p{Letter}+" />
+              <div>
+                Validity State:
+                <span class="validity-state"></span>
+              </div>
+            </div>
+            <div>
+              <label for="v-minmaxlen" class="form-label">Min/Max length</label>
+              <input
+                type="text"
+                name="v-minmaxlen"
+                id="v-minmaxlen"
+                class="form-control untouched"
+                required
+                minlength="3"
+                maxlength="10" />
+              <div>
+                Validity State:
+                <span class="validity-state"></span>
+              </div>
+            </div>
+            <div>
+              <label for="v-number" class="form-label">Number</label>
+              <input type="number" name="v-number" id="v-number" class="form-control untouched" />
+              <div>
+                Validity State:
+                <span class="validity-state"></span>
+              </div>
+            </div>
+            <div>
+              <label for="v-date" class="form-label">Date</label>
+              <input
+                type="date"
+                name="v-date"
+                id="v-date"
+                class="form-control untouched"
+                min="2021-05-15"
+                max="2021-08-15" />
+              <div>
+                Validity State:
+                <span class="validity-state"></span>
+              </div>
+            </div>
+
+            <div class="mt-2"><button class="btn btn-danger" type="submit">Validate</button></div>
+          </form>
+        </div>
+      </div>
+    </main>
+    <script src="/node_modules/dayjs/dayjs.min.js"></script>
+    <script>
+      function getValidityState(vs) {
+        for (let key in vs) {
+          if (vs[key]) return `${key}: ${vs[key]}`;
+        }
+      }
+      let form = document.getElementById('validation-form');
+      form.addEventListener('focusout', (event) => {
+        event.target.parentElement.querySelector('.validity-state').textContent = getValidityState(
+          event.target.validity
+        );
+        event.target.classList.replace('untouched', 'touched');
+      });
+
+      let el = document.getElementById('v-pattern');
+      el.addEventListener('input', () => {
+        el.setCustomValidity('');
+        el.checkValidity();
+      });
+
+      el.addEventListener('invalid', () => {
+        el.setCustomValidity('Please enter a capital letter, followed by one or more letters');
+      });
+
+      let dateField = document.getElementById('v-date');
+      let plus30 = dayjs().add(30, 'day');
+      let minus30 = dayjs().subtract(30, 'day');
+      dateField.min = minus30.format('YYYY-MM-DD');
+      dateField.max = plus30.format('YYYY-MM-DD');
+    </script>
+  </body>
+</html>

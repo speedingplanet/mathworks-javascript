@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Tables example</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>HTML Tables example</h1>
+      </header>
+      <section>
+        <h2>Basic core table</h2>
+        <table border="1">
+          <tr>
+            <td>Row 1, column 1</td>
+            <td>Row 1, column 2</td>
+            <td>Row 1, column 3</td>
+          </tr>
+          <tr>
+            <td>Row 2, column 1</td>
+            <td>Row 2, column 2</td>
+            <td>Row 2, column 3</td>
+            <td>Row 2, column 4</td>
+          </tr>
+        </table>
+      </section>
+      <section>
+        <h2>Better table</h2>
+        <table border="1">
+          <!-- Typically has a thead and a tbody. The tfoot section is optional. -->
+          <thead>
+            <tr>
+              <th>City</th>
+              <th>Team</th>
+              <th>Wins</th>
+              <th>Losses</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Minnesota</td>
+              <td>Twins</td>
+              <td>37</td>
+              <td>28</td>
+            </tr>
+            <tr>
+              <td>Cleveland</td>
+              <td>Guardians</td>
+              <td>32</td>
+              <td>27</td>
+            </tr>
+            <tr>
+              <td>Chicago</td>
+              <td>White Sox</td>
+              <td>30</td>
+              <td>31</td>
+            </tr>
+            <tr>
+              <td>Detroit</td>
+              <td>Tigers</td>
+              <td>24</td>
+              <td>39</td>
+            </tr>
+            <tr>
+              <td>Kansas City</td>
+              <td>Royals</td>
+              <td>21</td>
+              <td>41</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="2">Averages:</td>
+            </tr>
+            <tr>
+              <td colspan="4"><button id="summarize-button">Summarize</button></td>
+            </tr>
+          </tfoot>
+        </table>
+      </section>
+    </main>
+    <script>
+      document.querySelector('#summarize-button').addEventListener('click', (event) => {
+        let table = event.target.closest('table');
+        let winCells = table.querySelectorAll('tbody td:nth-child(3)');
+        let lossCells = table.querySelectorAll('tbody td:nth-child(4)');
+        let wins = [];
+        let losses = [];
+
+        // Assumes there are equal counts of wins and losses
+        for (let x = 0; x < winCells.length; x++) {
+          wins.push(winCells[x].textContent);
+          losses.push(lossCells[x].textContent);
+        }
+
+        let totalWins = wins.reduce((runningTotal, value) => runningTotal + Number(value), 0);
+        let totalLosses = losses.reduce((runningTotal, value) => runningTotal + Number(value), 0);
+
+        let averageWins = totalWins / wins.length;
+        let averageLosses = totalLosses / losses.length;
+
+        let firstFooterRow = table.querySelector('tfoot>tr');
+        firstFooterRow.replaceChildren();
+        firstFooterRow.insertAdjacentHTML(
+          'afterbegin',
+          `<td colspan="2">Averages:</td>
+          <td>${averageWins}</td>
+          <td>${averageLosses}</td>`
+        );
+      });
+    </script>
+  </body>
+</html>

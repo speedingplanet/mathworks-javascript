@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manipulating the DOM</title>
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>Manipulating the DOM</h1>
+      </header>
+    </main>
+    <div class="row">
+      <div class="col">
+        <h3>Finding Elements</h3>
+        <ul>
+          <li>
+            <code id="gebi">document.getElementById(id)</code>
+            <p>Fetches a single element by it's id attribute.</p>
+          </li>
+          <li>
+            <code>document.querySelector(selector)</code>
+            <p>
+              Finds the first match for <code>selector</code> or <code>null</code> if not found.
+            </p>
+          </li>
+          <li>
+            <code>document.querySelectorAll(selector)</code>
+            <p>
+              Finds all matches for <code>selector</code> or an empty <code>NodeList</code> if not
+              found.
+            </p>
+          </li>
+          <li>
+            <code>document.getElementsByClassName(class)</code>
+            <p>Not frequently used: Get all elements in the page by their CSS class.</p>
+          </li>
+          <li>
+            <code>document.getElementsByTagName(tag)</code>
+            <p>Not frequently used: Get all elements in the page by their <code>tag</code>.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h3>Creating elements</h3>
+        <ul>
+          <li>
+            <code>document.createElement(elementName)</code><br />
+            <p>Have to add the element to the DOM</p>
+          </li>
+          <li>
+            <code>node.cloneNode(deep)</code>
+            <p>Copy this node. Shallow, unless <code>deep</code> is <code>true</code></p>
+          </li>
+          <li>
+            <code>element.insertAdjacentElement(position, newElement)</code>
+            <p>location can be 'beforebegin', 'afterbegin', 'beforeend', or 'afterend'</p>
+          </li>
+          <li>
+            <code>element.insertAdjacentHTML(position, HTML)</code>
+            <p>
+              location can be 'beforebegin', 'afterbegin', 'beforeend', or 'afterend'<br />
+              Faster than <code>innerHTML</code>, below
+            </p>
+          </li>
+          <li>
+            <code>element.innerHTML = 'Some HTML'</code>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h3>Text content</h3>
+        <ul>
+          <li>
+            <code>element.textContent = content</code>
+            <p>
+              Preferred. More efficient than <code>innerText</code>. <br />
+              See also
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent#differences_from_innertext"
+                >textContent vs innerText</a
+              >
+            </p>
+          </li>
+          <li>
+            <code>element.innerText = text</code>
+            <p>Aware of styling, will not show hidden text/content.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h3>Adding or moving elements</h3>
+        <p>Given some DOM element <code>el</code> and a target <code>t</code></p>
+        <ul>
+          <li><code>t.appendChild(el)</code> el is now the last child of t; inflexible</li>
+          <li><code>t.append(el)</code> el is now the last child of t</li>
+          <li><code>t.append(...elements)</code> each element is added as the last child of t</li>
+          <li><code>t.append(DOMString)</code> add DOMString as text as the last child of t</li>
+          <li>
+            <code>t.append(...DOMStrings)</code> each DOMString is added as text as the last child
+            of t
+          </li>
+          <li>
+            <p>With the same arguments as <code>append()</code></p>
+            <ul>
+              <li><code>prepend</code> / first child of t</li>
+              <li><code>before</code> / added before t as a sibling</li>
+              <li><code>after</code> / added after t as a sibling</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h3>Removing elements</h3>
+        <ul>
+          <li>
+            <code>element.remove()</code>
+            <p>The element removes itself from its parent</p>
+          </li>
+          <li>
+            <code>element.replaceWith(...nodes)</code>
+            <p>The element is replaced with the provided node(s)</p>
+          </li>
+          <li>
+            <code>node.replaceChild(target, replacement)</code>
+            <p>In node, replaces target with replacement</p>
+          </li>
+          <li>
+            <code>node.replaceChildren(...replacement)</code>
+            <p>In node, replaces the child nodes of target with <code>replacement</code></p>
+          </li>
+          <li>
+            <code>node.removeChild(target)</code>
+            <p>In node, removes target</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

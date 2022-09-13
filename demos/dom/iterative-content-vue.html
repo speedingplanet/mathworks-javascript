@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/bootstrap.css" />
+    <title>Iterative Content with Vue.js</title>
+  </head>
+
+  <body>
+    <main class="container">
+      <header>
+        <h1>Iterative content with Vue.js</h1>
+        <hr />
+      </header>
+      <section>
+        <h2>Using Vue.js</h2>
+        <div class="row">
+          <div class="col">
+            <p>
+              Using
+              <a href="https://v3.vuejs.org">Vue.js</a>
+              , version 3
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div id="app">
+              <ul>
+                <li v-for="movie of movies">{{ movie.title }} ({{ movie.year }})</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- NOT production ready, or even production style. -->
+    <!-- Purely demonstrating Vue syntax -->
+    <!-- Reference: https://v3.vuejs.org/guide/introduction.html#getting-started -->
+    <script src="https://unpkg.com/vue@next"></script>
+    <script type="module">
+      import { movies } from '../../data/movies-module.js';
+
+      const app = Vue.createApp({
+        data() {
+          return { movies, firstName: 'John', lastName: 'Paxton' };
+        },
+      });
+      app.mount('#app');
+    </script>
+  </body>
+</html>

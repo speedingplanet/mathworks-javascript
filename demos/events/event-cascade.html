@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Cascade</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>Event Cascade</h1>
+      <p>What happens when multiple event handlers can run?</p>
+    </header>
+
+    <section>
+      <div id="div" style="border: 2px green solid">
+        <ul>
+          <li id="list-item">
+            <p>
+              This is some text we don't care about.
+              <span id="span" style="color: red">
+                This is text we care
+                <a id="anchor" href="http://google.com/">about</a>
+                .
+              </span>
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <script>
+      document.getElementById('list-item').addEventListener('click', (event) => {
+        console.log('You clicked on the list item');
+        // event.stopPropagation();
+      });
+
+      document.getElementById('anchor').addEventListener('click', (event) => {
+        console.log('You clicked on the anchor');
+        event.preventDefault();
+      });
+
+      document.getElementById('div').addEventListener('click', (event) => {
+        console.log('You clicked on the div');
+        let div = document.getElementById('div');
+        // event.preventDefault();
+      });
+
+      document.getElementById('span').addEventListener('click', (event) => {
+        console.log('You clicked on the span');
+        event.stopPropagation();
+      });
+
+      // Event capture rather than bubble, inbound rather than outbound
+      /*
+      document.getElementById('div').addEventListener(
+        'click',
+        () => {
+          console.log('div: This should happen first');
+        },
+        true
+      );
+      */
+
+      // Listening for double clicks, instead of single clicks
+      document.getElementById('span').addEventListener('dblclick', () => {
+        console.log('You double-clicked on the span');
+      });
+
+      document.getElementById('div').addEventListener(
+        'dblclick',
+        (e) => {
+          console.log('div: Stopping double-clicks');
+          // e.stopPropagation();
+        },
+        true
+      );
+    </script>
+  </body>
+</html>

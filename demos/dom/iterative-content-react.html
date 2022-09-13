@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/bootstrap.css" />
+    <title>Iterative Content with React.js</title>
+  </head>
+
+  <body>
+    <main class="container">
+      <header>
+        <h1>Iterative content with React.js</h1>
+        <hr />
+      </header>
+      <section>
+        <h2>React.js</h2>
+        <div class="row">
+          <div class="col">
+            <div id="app"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- NOT production ready, or even production style. -->
+    <!-- Purely demonstrating React syntax -->
+    <!-- Reference: https://reactjs.org/docs/add-react-to-a-website.html -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="../../data/movies.js"></script>
+    <script type="text/babel">
+      const e = React.createElement;
+      const root = document.querySelector('#app');
+      ReactDOM.render(e(MovieList), root);
+
+      function MovieList() {
+        return (
+          <ul>
+            {movies.map((movie) => (
+              <li key={movie.id}>
+                {movie.title} ({movie.year})
+              </li>
+            ))}
+          </ul>
+        );
+      }
+    </script>
+  </body>
+</html>

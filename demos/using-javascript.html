@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <title>Using JavaScript</title>
+  </head>
+
+  <body>
+    <h1>Using JavaScript</h1>
+    <p>We are covering two ways to use JavaScript. There are other ways, but these are typical.</p>
+    <ul>
+      <li>Inline JavaScript in a <code>&lt;script&gt;</code> block</li>
+      <li>
+        JavaScript included in a
+        <code>&lt;script src="filename.js"&gt;&lt;/script&gt;</code> element
+      </li>
+    </ul>
+
+    <p>
+      Make sure to look at the console (Ctrl-Shift-I or Cmd-Shift-I or through menus, or
+      right-click, then choose "Inspect") to see the results.
+    </p>
+
+    <script>
+      // This JavaScript is included in-line.
+      console.log('Hello, world, from an in-line JavaScript block.');
+    </script>
+
+    <!-- JavaScript included via a script element with a src attribute -->
+    <script src="using-javascript.js"></script>
+  </body>
+</html>

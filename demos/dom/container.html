@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Container</title>
+    <style>
+      #flex-container {
+        display: flex;
+      }
+      #container {
+        width: 300px;
+        height: 150px;
+        border: 2px black solid;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>HTML Container</h1>
+      </header>
+      <section>
+        <h2>The element below is a container</h2>
+        <!-- div#container -->
+        <div id="flex-container">
+          <!-- beforebegin is here -->
+          <div id="container">
+            <!-- afterbegin is here -->
+            <p>placeholder element</p>
+            <!-- beforeend is here -->
+          </div>
+          <!-- afterend is here -->
+          <div>
+            <button id="add-element">Add an element</button>
+            <br />
+            <button id="replace-element-iah">Replace content (insertAdjacentHTML)</button>
+            <br />
+            <button id="replace-element-ce">Replace content (createElement)</button>
+            <br />
+            <button id="create-list">Create a list</button>
+            <br />
+            <button id="replace-list">Replace the list</button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script>
+      let createListButton = document.querySelector('#create-list');
+      createListButton.addEventListener('click', () => {
+        let list = document.createElement('ul');
+        list.insertAdjacentHTML('afterBegin', '<li>apples</li>');
+        list.insertAdjacentHTML('afterBegin', '<li>peaches</li>');
+        list.insertAdjacentHTML('afterBegin', '<li>oranges</li>');
+        list.insertAdjacentHTML('afterBegin', '<li>bananas</li>');
+        let container = document.querySelector('#container');
+        container.replaceChildren(list);
+      });
+
+      let replaceListButton = document.querySelector('#replace-list');
+      replaceListButton.addEventListener('click', () => {
+        let vegetables = ['broccoli', 'spinach', 'zucchini', 'carrots', 'potatoes'];
+        let vegetablesList = [];
+        for (let vegetable of vegetables) {
+          let item = document.createElement('li');
+          item.textContent = vegetable;
+          vegetablesList.push(item);
+        }
+
+        let list = document.querySelector('#container>ul');
+        list.replaceChildren(...vegetablesList);
+      });
+
+      let replaceButtonCE = document.querySelector('#replace-element-ce');
+      replaceButtonCE.addEventListener('click', () => {
+        let replacementParagraph = document.createElement('p');
+        replacementParagraph.textContent = 'Replacement (via document.createElement)';
+        let container = document.querySelector('#container');
+        container.replaceChildren(replacementParagraph);
+      });
+
+      let replaceButtonIAH = document.querySelector('#replace-element-iah');
+      replaceButtonIAH.addEventListener('click', () => {
+        let container = document.querySelector('#container');
+        container.replaceChildren();
+        container.insertAdjacentHTML('afterbegin', '<p>Replacement (via insertAdjacentHTML)</p>');
+      });
+
+      let addButton = document.querySelector('#add-element');
+      addButton.addEventListener('click', () => {
+        let container = document.querySelector('#container');
+        container.insertAdjacentHTML('afterbegin', '<p>A new paragraph!</p>');
+      });
+    </script>
+  </body>
+</html>

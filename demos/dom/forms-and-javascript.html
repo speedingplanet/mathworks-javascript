@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <title>Forms and JavaScript</title>
+  </head>
+
+  <body>
+    <main class="container">
+      <header class="row">
+        <div class="col">
+          <h1>Forms and JavaScript</h1>
+        </div>
+      </header>
+      <div class="row">
+        <div class="col">
+          <form id="demo-form" name="demo-form">
+            <div class="mb-2">
+              <label for="text-field" class="form-label">Enter some text:</label>
+              <input type="text" id="text-field" name="text-field-name" class="form-control" />
+              <button class="btn btn-primary mt-2" id="get-button" type="button">
+                Get the text
+              </button>
+            </div>
+            <div>
+              <label for="other-field" class="form-label">Enter some other text:</label>
+              <input type="text" name="other-field-name" id="other-field" class="form-control" />
+            </div>
+            <div class="mt-2 mb-2">
+              <button class="btn btn-info" type="submit" id="get-all-button">
+                Get all the data
+              </button>
+            </div>
+          </form>
+          <p id="log-message"></p>
+        </div>
+      </div>
+    </main>
+    <script>
+      // Get the references to the DOM elements we need
+      let button = document.getElementById('get-button');
+      let getAllButton = document.getElementById('get-all-button');
+      let textField = document.getElementById('text-field');
+      let form = document.getElementById('demo-form');
+
+      function log(message, add = false) {
+        let logger = document.getElementById('log-message');
+        if (add) {
+          logger.insertAdjacentHTML('beforeend', message + '<br/>');
+        } else {
+          logger.textContent = message;
+        }
+      }
+
+      button.addEventListener('click', () => {
+        log(textField.value);
+      });
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        // FormData expects a form that has been submitted
+        let data = new FormData(form);
+        log('');
+
+        // for-of over the data object
+        /*
+        for (let entry of data) {
+          log(`The ${entry[0]} field has the value ${entry[1]}.`, true);
+        }
+        */
+
+        // for-of with destructuring
+        /*
+        for (let [key, value] of data) {
+          log(`The ${key} field has the value ${value}.`, true);
+        }
+        */
+
+        // Extract all the values as a one-liner
+        // let values = Array.from(data.values());
+
+        // Extract all the entries as a one-liner
+        let entries = Array.from(data.entries());
+
+        entries.forEach(([key, value]) => {
+          log(`The ${key} field has the value ${value}.`, true);
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/bootstrap.css" />
+    <title>Iterative Content</title>
+  </head>
+
+  <body>
+    <main class="container">
+      <header>
+        <h1>Iterative content</h1>
+        <hr />
+      </header>
+      <section>
+        <h2>The DOM API</h2>
+        <div class="row">
+          <div class="col">
+            <h3>document.createElement()</h3>
+            <div id="create-element"></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <h3>element.insertAdjacentHTML()</h3>
+            <div id="insert-adjacent-html"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <h3>element.innerHTML property</h3>
+            <div id="inner-html"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="iterative-content.js" type="module"></script>
+    <!-- Using globals, bad practice -->
+    <!--
+<script src="../../data/movies.js"></script>
+<script src="iterative-content.js"></script>
+-->
+  </body>
+</html>

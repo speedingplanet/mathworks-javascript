@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Object</title>
+    <style>
+      #box {
+        width: 250px;
+        height: 250px;
+        background-color: red;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #box > div {
+        height: 100px;
+        width: 100px;
+        text-align: center;
+        font-size: 150%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>The Event Object</h1>
+    <p>
+      Click on the box below and look at the console. It will show you the details of the event
+      object associated with the click.
+    </p>
+
+    <div id="box">
+      <div id="target">
+        <p>Click me</p>
+      </div>
+    </div>
+
+    <script>
+      function clickHandler(event) {
+        console.log('You clicked on the box.');
+        console.log("Here's the event object: ", event);
+      }
+
+      let box = document.getElementById('box');
+      box.addEventListener('click', clickHandler);
+    </script>
+  </body>
+</html>

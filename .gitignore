@@ -1,0 +1,9 @@
+node_modules
+.DS_Store
+~*.xslx
+.formatting-eslintrc.js
+.vscode
+labs/greeter*
+main/*.js
+main/*.html
+main/*.json

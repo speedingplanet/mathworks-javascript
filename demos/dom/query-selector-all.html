@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Query Selector</title>
+    <style>
+      .orangeClass {
+        background-color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Using QuerySelector (sometimes All)</h1>
+    </header>
+
+    <ul>
+      <li class="orangeClass">Apples</li>
+      <li style="background-color: orange">Oranges</li>
+      <li>Peaches</li>
+      <li>Pears</li>
+      <li>Bananas</li>
+    </ul>
+
+    <ol>
+      <li>Natick</li>
+      <li>Framingham</li>
+      <li>Boston</li>
+    </ol>
+
+    <script>
+      // can't get the list with document.getElementById()
+      // document.getElementsByClassName('clickable');
+      // document.getElementsByTagName('li')
+      //
+
+      /*
+      let lis = document.querySelectorAll('ul > li');
+      lis.forEach((li) => {
+        console.log(
+          `${li.innerText} : ${getComputedStyle(li).backgroundColor}`
+        );
+      });
+      */
+    </script>
+  </body>
+</html>
