@@ -23,14 +23,21 @@
           <li>
             <code>document.querySelector(selector)</code>
             <p>
-              Finds the first match for <code>selector</code> or <code>null</code> if not found.
+              Finds the first match for
+              <code>selector</code>
+              or
+              <code>null</code>
+              if not found.
             </p>
           </li>
           <li>
             <code>document.querySelectorAll(selector)</code>
             <p>
-              Finds all matches for <code>selector</code> or an empty <code>NodeList</code> if not
-              found.
+              Finds all matches for
+              <code>selector</code>
+              or an empty
+              <code>NodeList</code>
+              if not found.
             </p>
           </li>
           <li>
@@ -39,7 +46,11 @@
           </li>
           <li>
             <code>document.getElementsByTagName(tag)</code>
-            <p>Not frequently used: Get all elements in the page by their <code>tag</code>.</p>
+            <p>
+              Not frequently used: Get all elements in the page by their
+              <code>tag</code>
+              .
+            </p>
           </li>
         </ul>
       </div>
@@ -49,26 +60,36 @@
         <h3>Creating elements</h3>
         <ul>
           <li>
-            <code>document.createElement(elementName)</code><br />
+            <code>document.createElement(elementName)</code>
+            <br />
             <p>Have to add the element to the DOM</p>
           </li>
           <li>
-            <code>node.cloneNode(deep)</code>
-            <p>Copy this node. Shallow, unless <code>deep</code> is <code>true</code></p>
+            <code>element.insertAdjacentHTML(position, HTML)</code>
+            <p>
+              location can be 'beforebegin', 'afterbegin', 'beforeend', or 'afterend'
+              <br />
+              Faster than
+              <code>innerHTML</code>
+              , below
+            </p>
           </li>
           <li>
             <code>element.insertAdjacentElement(position, newElement)</code>
             <p>location can be 'beforebegin', 'afterbegin', 'beforeend', or 'afterend'</p>
           </li>
           <li>
-            <code>element.insertAdjacentHTML(position, HTML)</code>
-            <p>
-              location can be 'beforebegin', 'afterbegin', 'beforeend', or 'afterend'<br />
-              Faster than <code>innerHTML</code>, below
-            </p>
+            <code>element.innerHTML = 'Some HTML'</code>
+            <p>Sets the HTML of a node, somewhat slow</p>
           </li>
           <li>
-            <code>element.innerHTML = 'Some HTML'</code>
+            <code>node.cloneNode(deep)</code>
+            <p>
+              Copy this node. Shallow, unless
+              <code>deep</code>
+              is
+              <code>true</code>
+            </p>
           </li>
         </ul>
       </div>
@@ -80,12 +101,15 @@
           <li>
             <code>element.textContent = content</code>
             <p>
-              Preferred. More efficient than <code>innerText</code>. <br />
+              Preferred. More efficient than
+              <code>innerText</code>
+              .
+              <br />
               See also
               <a
-                href="https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent#differences_from_innertext"
-                >textContent vs innerText</a
-              >
+                href="https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent#differences_from_innertext">
+                textContent vs innerText
+              </a>
             </p>
           </li>
           <li>
@@ -98,22 +122,51 @@
     <div class="row">
       <div class="col">
         <h3>Adding or moving elements</h3>
-        <p>Given some DOM element <code>el</code> and a target <code>t</code></p>
+        <p>
+          Given some DOM element
+          <code>el</code>
+          and a target
+          <code>t</code>
+        </p>
         <ul>
-          <li><code>t.appendChild(el)</code> el is now the last child of t; inflexible</li>
-          <li><code>t.append(el)</code> el is now the last child of t</li>
-          <li><code>t.append(...elements)</code> each element is added as the last child of t</li>
-          <li><code>t.append(DOMString)</code> add DOMString as text as the last child of t</li>
           <li>
-            <code>t.append(...DOMStrings)</code> each DOMString is added as text as the last child
-            of t
+            <code>t.appendChild(el)</code>
+            el is now the last child of t; inflexible
           </li>
           <li>
-            <p>With the same arguments as <code>append()</code></p>
+            <code>t.append(el)</code>
+            el is now the last child of t
+          </li>
+          <li>
+            <code>t.append(...elements)</code>
+            each element is added as the last child of t
+          </li>
+          <li>
+            <code>t.append(DOMString)</code>
+            add DOMString as text as the last child of t
+          </li>
+          <li>
+            <code>t.append(...DOMStrings)</code>
+            each DOMString is added as text as the last child of t
+          </li>
+          <li>
+            <p>
+              With the same arguments as
+              <code>append()</code>
+            </p>
             <ul>
-              <li><code>prepend</code> / first child of t</li>
-              <li><code>before</code> / added before t as a sibling</li>
-              <li><code>after</code> / added after t as a sibling</li>
+              <li>
+                <code>prepend</code>
+                / first child of t
+              </li>
+              <li>
+                <code>before</code>
+                / added before t as a sibling
+              </li>
+              <li>
+                <code>after</code>
+                / added after t as a sibling
+              </li>
             </ul>
           </li>
         </ul>
@@ -137,7 +190,10 @@
           </li>
           <li>
             <code>node.replaceChildren(...replacement)</code>
-            <p>In node, replaces the child nodes of target with <code>replacement</code></p>
+            <p>
+              In node, replaces the child nodes of target with
+              <code>replacement</code>
+            </p>
           </li>
           <li>
             <code>node.removeChild(target)</code>
