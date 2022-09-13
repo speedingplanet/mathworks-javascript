@@ -74,29 +74,36 @@
         }
         */
 
-        // for-of with destructuring
-        /*
+        // for-of with array destructuring
         for (let [key, value] of data) {
+          // for (let entry of data) {
+          // let [key, value] = entry;
+          // let key = entry[0];
+          // let value = entry[1];
           log(`The ${key} field has the value ${value}.`, true);
         }
-        */
 
         // Extract all the values as a one-liner
         // let values = Array.from(data.values());
 
+        // Extract all the keys as a one-liner
+        // let keys = Array.from(data.keys());
+
         // Extract all the entries as a one-liner
+        /*
         let entries = Array.from(data.entries());
 
         entries.forEach(([key, value]) => {
           log(`The ${key} field has the value ${value}.`, true);
         });
+        */
+      });
 
-        form.addEventListener('input', (event) => {
-          let field = event.target.name;
-          let value = event.target.value;
-          inputFormData[field] = value;
-          console.log('Form data value:', inputFormData);
-        });
+      form.addEventListener('input', (event) => {
+        let field = event.target.name;
+        let value = event.target.value;
+        inputFormData[field] = value;
+        console.log('Form data value:', inputFormData);
       });
     </script>
   </body>
