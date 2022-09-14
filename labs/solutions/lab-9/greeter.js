@@ -17,9 +17,9 @@ form.addEventListener('submit', (event) => {
   }
   log('Saving student...');
   saveStudent(student, `${dataURL}?_delay=5000`)
-    .then(() => {
+    .then((insertedStudent) => {
       log('Fetching updated students...');
-      return fetchStudents(dataURL);
+      return fetchStudentsPlusNew(dataURL, insertedStudent);
     })
     .then((students) => {
       log('Re-rendering students...');
@@ -29,6 +29,13 @@ form.addEventListener('submit', (event) => {
 
   addStudentToTable(student, 'students-list');
 });
+
+async function fetchStudentsPlusNew(url, student) {
+  let allStudents = await fetchStudents(url);
+  let mostStudents = allStudents.filter((s) => s.id !== student.id);
+  mostStudents.unshift(student);
+  return mostStudents;
+}
 
 function log(message, clear = false) {
   if (clear) {
