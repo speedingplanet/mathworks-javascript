@@ -203,13 +203,13 @@ Add a row, col, and div with an id "student-list" below the `#output` row, col a
 - Import `students` from `../data/students-module.js`
 - Write a function `renderStudents`. It shuold take arguments of an array of
   students to render, and the id of an element to render the students to.
-- `renderStudents` should build an unordered list, where each students first
+- `renderStudents` should build an unordered list, where each student's first
   and last names are list items. Like this:
 
 ```html
 <ul>
   <li>John Paxton</li>
-  <li>Daniel Kotlinski</li>
+  <li>Daniel Smith</li>
   <!-- And so on -->
 </ul>
 ```
