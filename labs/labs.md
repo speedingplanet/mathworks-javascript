@@ -254,6 +254,7 @@ We will replace importing the data directly with fetching the data from a remote
 - From a command prompt, make sure that you run `npm run rest-server`. This will
   start a server at http://localhost:8000. You can visit that address in your
   browser to test it.
+- Comment out the `import` of `students-module.js`.
 - Create a function `fetchStudents`. It should take an argument of a URL.
 - In `fetchStudents`, use the `fetch` command to retrieve data from the supplied
   URL. You can assume the data will be in the right format (i.e., an array of student objects)
