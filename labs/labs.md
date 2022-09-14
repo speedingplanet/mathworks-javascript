@@ -266,3 +266,91 @@ We will replace importing the data directly with fetching the data from a remote
   and pass it to `renderStudents` from the last lab.
 
 Test your code and see if it works!
+
+## Lab 9: Adding a student
+
+We should be able to add a student to the dataset.
+
+### HTML
+
+Here's the HTML for your form. Note the addition of the city and state/province fields
+
+```html
+<form>
+  <div class="row">
+    <div class="col">
+      <label for="first-name" class="form-label">First Name:</label>
+      <input type="text" name="first-name" id="first-name" class="form-control" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label for="last-name" class="form-label">Last Name:</label>
+      <input type="text" name="last-name" id="last-name" class="form-control" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label for="city" class="form-label">City:</label>
+      <input type="text" name="city" id="city" class="form-control" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label for="province" class="form-label">State/Province:</label>
+      <input type="text" name="province" id="province" class="form-control" />
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col">
+      <button type="submit" class="btn btn-primary">Add Student</button>
+    </div>
+  </div>
+</form>
+```
+
+### Part 1: Adding a student
+
+Modify your JavaScript so that you capture the form data from the form
+Create a function `addStudentToTable`:
+
+- Arguments:
+  - Student object
+  - ID of an element that contains the table to which you want to add the student
+- Find the `tbody` element under the table
+- Build a new row to insert into the table body
+- Insert the new row at the top (as the first child) of the table body
+
+Call `addStudentToTable` from the event handler for the form submit event. Pass it the appropriate arguments. You may have to build a student object along the way.
+
+### Part 2: Saving the student
+
+Add functionality to your JavaScript to save the student to the server. Use either `async/await` or Promises, or a combination of both.
+
+Create a function `saveStudent`:
+
+- Arguments
+  - Student object
+  - URL to save to
+- Create a fetch request to send the student, via the POST method, to the REST server
+  - [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#supplying_request_options)
+- If the response is successful (status code is 201), return the parsed result
+- If the response is not successful, throw a new error with appropriate information
+
+Update the event handler for the form's submit event to call `saveStudent` at the appropriate time (before or after `addStudentToTable`?) with the appropriate arguments
+
+After calling `saveStudent`, still in the event handler, refetch the students, and then re-render the table
+
+## Lab 10: The Student class
+
+Create a class `Student` in `Student.js`. This has implications for the rest of the code:
+
+- Create a copy of `greeter.js` and `greeter.html` as `greeter-with-classes.js` and `greeter-with-classes.html`
+- Import the `Student` class into `greeter-with-classes.js`.
+- Update `fetchStudents` to return an array of class instances, rather than objects
+- Update the form's submit event handler to create a `Student` instance out of the form data
+- Make other changes to the code as appropriate, now that you're using `Student` instances, rather than object literals
+
+## Lab 11: Data Table
+
+Rebuild the table with the data as a new component `DataTable`. Work with your instructor and colleagues to design and implement `DataTable`.
