@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <title>Greeter</title>
+  </head>
+  <body>
+    <main class="container">
+      <header class="row">
+        <div class="col">
+          <h1>Greeter Labs</h1>
+        </div>
+      </header>
+      <section class="row">
+        <div class="col-9">
+          <form id="student-form">
+            <div class="row">
+              <div class="col">
+                <label for="first-name" class="form-label">First Name:</label>
+                <input type="text" name="first-name" id="first-name" class="form-control" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="last-name" class="form-label">Last Name:</label>
+                <input type="text" name="last-name" id="last-name" class="form-control" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="city" class="form-label">City:</label>
+                <input type="text" name="city" id="city" class="form-control" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="province" class="form-label">State/Province:</label>
+                <input type="text" name="province" id="province" class="form-control" />
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="col">
+                <button type="submit" class="btn btn-primary">Add Student</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col">
+          <div id="output">
+            <ul class="list-unstyled"></ul>
+          </div>
+        </div>
+      </section>
+      <div class="row mt3">
+        <header class="col">
+          <h2>Students List</h2>
+        </header>
+      </div>
+      <div class="row">
+        <div class="col" id="students-list"></div>
+      </div>
+    </main>
+    <script src="greeter.js" type="module"></script>
+  </body>
+</html>
