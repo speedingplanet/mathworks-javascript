@@ -3,7 +3,7 @@
 const states = ['NJ', 'MA', 'CA', 'IL', 'FL', 'CT', 'ME'];
 
 // Iterator functions usually take a callback/predicate with this signature
-// (item?, index?, array?) => void
+// array.iteratorFn((item?, index?, array?) => void)
 // Technically, all three are optional arguments!
 // No breaking, unfortunately
 // No return value either
