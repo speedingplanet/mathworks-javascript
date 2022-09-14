@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <style>
+      /* https://stackoverflow.com/questions/50361698/border-style-do-not-work-with-sticky-position-element */
+      /* Keeps the border in place */
+      .table {
+        border-collapse: separate;
+        border-spacing: 0;
+      }
+
+      /* Makes the thead ths sticky */
+      .table thead th {
+        background-color: white;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        border-bottom: black 3px solid;
+      }
+    </style>
+    <title>Bootstrap tables</title>
+  </head>
+  <body>
+    <main class="container">
+      <div class="row">
+        <header class="col">
+          <h1>Bootstrap tables</h1>
+          <hr />
+        </header>
+      </div>
+      <section class="row" style="height: 30vh; overflow-y: scroll">
+        <div class="col">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th style="width: 30%">Fastener</th>
+                <th style="width: 30%">Expected</th>
+                <th style="width: 30%">Actual</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Roofing Nails</td>
+                <td>500</td>
+                <td>600</td>
+              </tr>
+              <tr>
+                <td>Framing Nails</td>
+                <td>100</td>
+                <td>50</td>
+              </tr>
+              <tr>
+                <td>Finishing Nails</td>
+                <td>789</td>
+                <td>54</td>
+              </tr>
+              <tr>
+                <td>Common Nails</td>
+                <td>876</td>
+                <td>746</td>
+              </tr>
+              <tr>
+                <td>Hex Bolts</td>
+                <td>768</td>
+                <td>564</td>
+              </tr>
+              <tr>
+                <td>Lag Bolts</td>
+                <td>250</td>
+                <td>250</td>
+              </tr>
+              <tr>
+                <td>Carriage Bolts</td>
+                <td>1000</td>
+                <td>1100</td>
+              </tr>
+              <tr>
+                <td>U-Bolts</td>
+                <td>174</td>
+                <td>175</td>
+              </tr>
+              <tr>
+                <td>Eye Bolts</td>
+                <td>238</td>
+                <td>325</td>
+              </tr>
+              <tr>
+                <td>Hex Nuts</td>
+                <td>100</td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td>Cap Nuts</td>
+                <td>200</td>
+                <td>210</td>
+              </tr>
+              <tr>
+                <td>Lock Nuts</td>
+                <td>333</td>
+                <td>444</td>
+              </tr>
+              <tr>
+                <td>Wing Nuts</td>
+                <td>256</td>
+                <td>256</td>
+              </tr>
+              <tr>
+                <td>Flat washers</td>
+                <td>1500</td>
+                <td>1523</td>
+              </tr>
+              <tr>
+                <td>Finishing washers</td>
+                <td>300</td>
+                <td>300</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
