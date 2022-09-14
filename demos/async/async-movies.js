@@ -23,12 +23,15 @@ async function fetchMovies() {
       moviesTable.append(...tableRows);
       moviesTable.parentElement.hidden = false;
       console.log('7: Finished');
+      return movies;
     }
   } catch (err) {
     console.error('fetchMovies: Something went wrong:', err);
+    throw err; // So the caller can see the error
   }
 }
 
 console.log('1: Before fetchMovies()');
+// let movies = await fetchMovies();
 fetchMovies();
 console.log('3: After fetchMovies()');
