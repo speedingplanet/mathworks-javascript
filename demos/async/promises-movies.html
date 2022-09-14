@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <title>Async Movies</title>
+  </head>
+  <body>
+    <main class="container">
+      <div class="row">
+        <header class="col">
+          <h1>Async Movies</h1>
+          <hr />
+        </header>
+      </div>
+      <!-- .row>.col>table.table#movies-table -->
+      <div class="row">
+        <div class="col">
+          <table class="table" id="movies-table" hidden>
+            <!-- thead>tr>th*4 -->
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Rating</th>
+                <th>Director</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+    <script src="promises-movies.js" type="module"></script>
+  </body>
+</html>
