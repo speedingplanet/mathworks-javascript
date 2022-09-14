@@ -35,3 +35,8 @@ npm start
 - [An overview of Node.js: architecture, APIs, event loop, concurrency](https://2ality.com/2022/09/nodejs-overview.html)
 - [What the heck is the event loop anyway?](https://www.youtube.com/watch?v=8aGhZQkoFbQ): Old, but still relevant, and a great presentation
 - [JavaScript Event Loop](https://www.javascripttutorial.net/javascript-event-loop/)
+
+### Miscellaneous
+
+- [Finished ECMAScript proposals](https://github.com/tc39/proposals/blob/HEAD/finished-proposals.md)
+- [ECMAScript compatibility table](https://kangax.github.io/compat-table/es6/)
