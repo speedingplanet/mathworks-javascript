@@ -77,11 +77,15 @@ const statesThatStartWithC = states.filter((state) => state.startsWith('C'));
 // Logical indexing of an array
 // Filter an array of values by a corresponding array of booleans
 let wantedBoolean = [true, false, true, false, true, true, false];
-let wantedBooleanStates = states.filter((state, index) => index);
+let wantedBooleanStates = states.filter((state, index) => wantedBoolean[index]);
 
 // Filter an array of values by an array of positions
 let wantedIndices = [0, 2, 4, 5];
 let wantedIndicesStates = states.filter((state, index) => wantedIndices.includes(index));
+
+// This might be faster
+let wantedIndicesSet = new Set([0, 2, 4, 5]);
+let wantedIndicesStatesBySet = states.filter((state, index) => wantedIndicesSet.has(index));
 
 // Array.prototype.find((item?, index?, array?) => boolean) => item | null
 // Find only the first match for a predicate
