@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 
-const states = ['NJ', 'MA', 'CA', 'IL', 'FL'];
+const states = ['NJ', 'MA', 'CA', 'IL', 'FL', 'CT', 'ME'];
 
 // Iterator functions usually take a callback/predicate with this signature
 // (item?, index?, array?) => void
@@ -73,6 +73,15 @@ const mappedPeople = people.map((person) => {
 // Array.prototype.filter((item?, index?, array?) => boolean) => Array
 // Filter the values that pass a predicate test into a new array
 const statesThatStartWithC = states.filter((state) => state.startsWith('C'));
+
+// Logical indexing of an array
+// Filter an array of values by a corresponding array of booleans
+let wantedBoolean = [true, false, true, false, true, true, false];
+let wantedBooleanStates = states.filter((state, index) => index);
+
+// Filter an array of values by an array of positions
+let wantedIndices = [0, 2, 4, 5];
+let wantedIndicesStates = states.filter((state, index) => wantedIndices.includes(index));
 
 // Array.prototype.find((item?, index?, array?) => boolean) => item | null
 // Find only the first match for a predicate
